@@ -1,0 +1,63 @@
+{
+	"$schema": "https://json-schema.org/draft/2020-12/schema",
+	"$id": "./datatable.schema.json",
+	"title": "Data Table",
+	"description": "A JSON file that controls the settings of a ContentStack data table.",
+	"type": "object",
+	"properties": {
+		"pagination": {
+			"description": "Controls the number of items per page.",
+			"type": "object",
+			"properties": {
+				"itemsPerPage": {
+					"type": "number",
+					"description": "The number of results displayed on a single page.",
+					"exclusiveMinimum": 1,
+					"default": 25
+				},
+				"itemsPerPageOptions": {
+					"type": "array",
+					"description":"The dropdown options allowing the user to select how many results per page that they can see. This will be an array of integers."
+					"items": {
+						"type": "number",
+						"exclusiveMinimum": 1
+					},
+					"default": [25, 50, 75, 100]
+				}
+			},
+			"default" : {
+				"itemsPerPage": 25,
+				"itemsPerPageOptions": [25, 50, 75, 100]
+			}
+		},
+		"sort": {
+			"type": "array",
+			"description": "Identifies which columns should be sortable. To be included in sorting, list each CSV column title as it appears with case-sensitivity.",
+			"items": {
+				"type": "string"
+			}
+		},
+		"search": {
+			"type": "array",
+			"description": "Identifies which columns should be searchable. To be included in search criteria, list each CSV column title as it appears with case-sensitivity.",
+			"items": {
+				"type": "string"
+			}
+		},
+		"features": {
+			"type": "array",
+			"description": "Extra features which can cause the data table to be rendered differently in different contexts. This property is required, but can simply be entered as an empty array if no features are required: []",
+			"items": {
+				"type": "object",
+				"properties": {
+					"type": {
+						"type": "string",
+						"description":"The custom setting value.",
+						"enum": ["interconnection_queue"]
+					}
+				}
+			}
+		}
+	},
+	"required": ["pagination", "features"]
+}
