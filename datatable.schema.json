@@ -1,6 +1,6 @@
 {
 	"$schema": "https://json-schema.org/draft/2020-12/schema",
-	"$id": "./datatable.schema.json",
+	"$id": "https://ajenda.github.io/cs-datatable/datatable.schema.json",
 	"title": "Data Table",
 	"description": "A JSON file that controls the settings of a ContentStack data table.",
 	"type": "object",
