@@ -46,7 +46,7 @@
 		},
 		"features": {
 			"type": "array",
-			"description": "Extra features which can cause the data table to be rendered differently in different contexts. This property is required, but can simply be entered as an empty array if no features are required: []",
+			"description": "Extra features which can cause the data table to be rendered differently in different contexts. Normally features contains and array of objects. This property is required, but can simply be entered as an empty array if no features are required: []",
 			"items": {
 				"type": "object",
 				"properties": {
